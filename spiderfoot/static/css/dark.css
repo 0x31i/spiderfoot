@@ -2474,3 +2474,798 @@ footer .footer {
 .spiderfoot-header-image {
   display: none !important;
 }
+
+/* ============================================
+   Floating Selection Toolbar (FP Actions)
+   Sharp Modern Style
+   ============================================ */
+.selection-bar,
+.floating-toolbar,
+.bulk-actions,
+[class*="selection"],
+.fixed-bottom-bar,
+div[style*="fixed"][style*="bottom"] {
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8) !important;
+  padding: 12px 20px !important;
+}
+
+/* Selection count badge */
+.selection-bar .badge,
+.floating-toolbar .badge,
+.bulk-actions .badge,
+[class*="selection"] .badge {
+  background: var(--accent-purple) !important;
+  color: white !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  padding: 6px 12px !important;
+  box-shadow: 0 0 10px var(--glow-purple) !important;
+}
+
+/* Selection text labels */
+.selection-bar span,
+.floating-toolbar span,
+.bulk-actions span,
+[class*="selection"] > span {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* All buttons in floating toolbar - sharp style */
+.selection-bar .btn,
+.floating-toolbar .btn,
+.bulk-actions .btn,
+[class*="selection"] .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Green buttons (Data Element) */
+.selection-bar .btn-success,
+.floating-toolbar .btn-success,
+.bulk-actions .btn-success,
+[class*="selection"] .btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-success:hover,
+.floating-toolbar .btn-success:hover,
+.bulk-actions .btn-success:hover,
+[class*="selection"] .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Blue buttons (Source Element) */
+.selection-bar .btn-info,
+.floating-toolbar .btn-info,
+.bulk-actions .btn-info,
+[class*="selection"] .btn-info {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-blue) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-info:hover,
+.floating-toolbar .btn-info:hover,
+.bulk-actions .btn-info:hover,
+[class*="selection"] .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-blue) !important;
+}
+
+/* Orange/Warning buttons (Mark as FP) */
+.selection-bar .btn-warning,
+.floating-toolbar .btn-warning,
+.bulk-actions .btn-warning,
+[class*="selection"] .btn-warning {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-orange) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-warning:hover,
+.floating-toolbar .btn-warning:hover,
+.bulk-actions .btn-warning:hover,
+[class*="selection"] .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-orange) !important;
+}
+
+/* Default/Grey buttons (Clear) */
+.selection-bar .btn-default,
+.floating-toolbar .btn-default,
+.bulk-actions .btn-default,
+[class*="selection"] .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+.selection-bar .btn-default:hover,
+.floating-toolbar .btn-default:hover,
+.bulk-actions .btn-default:hover,
+[class*="selection"] .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* Close button (X) */
+.selection-bar .close,
+.floating-toolbar .close,
+.bulk-actions .close,
+[class*="selection"] .close,
+.selection-bar .btn-close,
+.floating-toolbar .btn-close {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  font-size: 18px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.selection-bar .close:hover,
+.floating-toolbar .close:hover,
+.bulk-actions .close:hover,
+[class*="selection"] .close:hover,
+.selection-bar .btn-close:hover,
+.floating-toolbar .btn-close:hover {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 15px var(--glow-red) !important;
+}
+
+/* Button badges/counts inside buttons */
+.selection-bar .btn .badge,
+.floating-toolbar .btn .badge,
+.bulk-actions .btn .badge,
+[class*="selection"] .btn .badge {
+  background: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+  margin-left: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Icons in floating toolbar */
+.selection-bar .btn .glyphicon,
+.floating-toolbar .btn .glyphicon,
+.bulk-actions .btn .glyphicon,
+[class*="selection"] .btn .glyphicon,
+.selection-bar .btn i,
+.floating-toolbar .btn i,
+.bulk-actions .btn i {
+  font-size: 14px !important;
+  margin-right: 6px !important;
+}
+
+/* ============================================
+   Scans Page Toolbar Buttons - Colored & Sharp
+   ============================================ */
+/* All toolbar buttons on scans page - sharp square style */
+#scanlist-toolbar .btn,
+#scanlist .btn-toolbar .btn,
+.scans-toolbar .btn {
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 14px !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+/* Trash/Delete button - Red */
+#scanlist-toolbar .btn-danger,
+#scanlist .btn-toolbar .btn-danger,
+.scans-toolbar .btn-danger,
+#btn-delete,
+.btn[title*="Delete"],
+.btn[onclick*="delete"],
+.btn .glyphicon-trash {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-red) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-danger:hover,
+#scanlist .btn-toolbar .btn-danger:hover,
+.scans-toolbar .btn-danger:hover,
+#btn-delete:hover,
+.btn[title*="Delete"]:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-red) !important;
+}
+
+/* Refresh button - Green */
+#scanlist-toolbar .btn-success,
+#scanlist .btn-toolbar .btn-success,
+.scans-toolbar .btn-success,
+#btn-refresh,
+.btn[title*="Refresh"],
+.btn[onclick*="refresh"] {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-success:hover,
+#scanlist .btn-toolbar .btn-success:hover,
+.scans-toolbar .btn-success:hover,
+#btn-refresh:hover,
+.btn[title*="Refresh"]:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Download/Export button - Purple */
+#scanlist-toolbar .btn-info,
+#scanlist .btn-toolbar .btn-info,
+.scans-toolbar .btn-info,
+#btn-export,
+.btn[title*="Export"],
+.btn[title*="Download"],
+.btn[onclick*="export"] {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-purple) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-info:hover,
+#scanlist .btn-toolbar .btn-info:hover,
+.scans-toolbar .btn-info:hover,
+#btn-export:hover,
+.btn[title*="Export"]:hover,
+.btn[title*="Download"]:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-purple) !important;
+}
+
+/* Filter dropdown - Dark with border */
+#scanlist-toolbar .btn-default,
+#scanlist .btn-toolbar .btn-default,
+.scans-toolbar .btn-default,
+.filter-dropdown .btn {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+#scanlist-toolbar .btn-default:hover,
+#scanlist .btn-toolbar .btn-default:hover,
+.scans-toolbar .btn-default:hover {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* ============================================
+   Workspaces Page - Square Buttons
+   ============================================ */
+/* Create Workspace button - Green, Sharp */
+.btn-create-workspace,
+.workspace-create-btn,
+a[href*="newworkspace"] .btn,
+.panel-heading .btn-success,
+#workspaces .btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  padding: 10px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.btn-create-workspace:hover,
+.workspace-create-btn:hover,
+a[href*="newworkspace"] .btn:hover,
+.panel-heading .btn-success:hover,
+#workspaces .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* All workspace action buttons - Square */
+#workspaces .btn,
+.workspace-actions .btn,
+#workspaces .btn-group .btn,
+.workspaces-table .btn,
+table .btn-group .btn {
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 12px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+}
+
+/* Workspace action button colors */
+/* View - Cyan */
+#workspaces .btn-info,
+.workspace-actions .btn-info,
+table .btn-group .btn-info {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #06b6d4 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-cyan) !important;
+}
+
+#workspaces .btn-info:hover,
+.workspace-actions .btn-info:hover,
+table .btn-group .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-cyan-light) 0%, var(--accent-cyan) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-cyan) !important;
+}
+
+/* Edit - Orange */
+#workspaces .btn-warning,
+.workspace-actions .btn-warning,
+table .btn-group .btn-warning {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-orange) !important;
+}
+
+#workspaces .btn-warning:hover,
+.workspace-actions .btn-warning:hover,
+table .btn-group .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-orange) !important;
+}
+
+/* Add - Green */
+#workspaces .btn-success,
+.workspace-actions .btn-success,
+table .btn-group .btn-success:not(.panel-heading .btn-success) {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-green) !important;
+}
+
+#workspaces .btn-success:hover,
+.workspace-actions .btn-success:hover,
+table .btn-group .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-green) !important;
+}
+
+/* Primary - Purple */
+#workspaces .btn-primary,
+.workspace-actions .btn-primary,
+table .btn-group .btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-purple) !important;
+}
+
+#workspaces .btn-primary:hover,
+.workspace-actions .btn-primary:hover,
+table .btn-group .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-purple) !important;
+}
+
+/* Delete - Red */
+#workspaces .btn-danger,
+.workspace-actions .btn-danger,
+table .btn-group .btn-danger {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-red) !important;
+}
+
+#workspaces .btn-danger:hover,
+.workspace-actions .btn-danger:hover,
+table .btn-group .btn-danger:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-red) !important;
+}
+
+/* Default/Grey buttons */
+#workspaces .btn-default,
+.workspace-actions .btn-default,
+table .btn-group .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+#workspaces .btn-default:hover,
+.workspace-actions .btn-default:hover,
+table .btn-group .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+}
+
+/* Workspace badges - Sharp */
+#workspaces .badge,
+.workspaces-table .badge {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  padding: 6px 10px !important;
+}
+
+/* ============================================
+   Workspace Detail/Edit Page - Sharp Modern Style
+   ============================================ */
+/* Action buttons row (Edit, Add Target, Import Scans, etc.) */
+.workspace-actions-row .btn,
+.workspace-header .btn,
+.workspace-toolbar .btn,
+h1 + .btn-toolbar .btn,
+h2 + .btn-toolbar .btn,
+.page-header .btn,
+.page-header + .btn-toolbar .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 10px 18px !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Edit button - Grey/Default */
+.workspace-actions-row .btn-default,
+.workspace-header .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+.workspace-actions-row .btn-default:hover,
+.workspace-header .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* Add Target button - Green */
+.workspace-actions-row .btn-success,
+.workspace-header .btn-success,
+.btn[href*="addtarget"],
+.btn[onclick*="addTarget"] {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+}
+
+.workspace-actions-row .btn-success:hover,
+.workspace-header .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Import/Info buttons - Blue */
+.workspace-actions-row .btn-info,
+.workspace-header .btn-info,
+.btn[href*="import"],
+.btn[onclick*="import"] {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-blue) !important;
+}
+
+.workspace-actions-row .btn-info:hover,
+.workspace-header .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-blue) !important;
+}
+
+/* Primary buttons - Purple */
+.workspace-actions-row .btn-primary,
+.workspace-header .btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-purple) !important;
+}
+
+.workspace-actions-row .btn-primary:hover,
+.workspace-header .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-purple) !important;
+}
+
+/* Warning/Schedule buttons - Orange */
+.workspace-actions-row .btn-warning,
+.workspace-header .btn-warning,
+.btn[href*="schedule"],
+.btn[onclick*="schedule"] {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-orange) !important;
+}
+
+.workspace-actions-row .btn-warning:hover,
+.workspace-header .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-orange) !important;
+}
+
+/* Danger/Remove buttons - Red */
+.workspace-actions-row .btn-danger,
+.workspace-header .btn-danger,
+.btn-remove,
+.btn[onclick*="remove"],
+table .btn-danger {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-red) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+}
+
+.workspace-actions-row .btn-danger:hover,
+.workspace-header .btn-danger:hover,
+.btn-remove:hover,
+table .btn-danger:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-red) !important;
+}
+
+/* ============================================
+   Workspace Stat Cards - Sharp Modern Style
+   ============================================ */
+.workspace-stat-card,
+.stat-card,
+.summary-card,
+.panel.workspace-panel,
+.workspace-stats .panel,
+.col-md-3 > .panel,
+.col-sm-3 > .panel,
+.stats-panel {
+  border-radius: 0 !important;
+  border: 1px solid var(--glass-border) !important;
+  overflow: hidden;
+}
+
+/* Card headers - Sharp with colors */
+.workspace-stat-card .panel-heading,
+.stat-card .panel-heading,
+.summary-card .panel-heading,
+.workspace-stats .panel-heading,
+.stats-panel .panel-heading {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 12px 16px !important;
+  border-bottom: none !important;
+}
+
+/* Targets card - Green header */
+.panel-heading[style*="green"],
+.panel-success > .panel-heading,
+.workspace-stats .panel:nth-child(1) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Scans card - Yellow/Orange header */
+.panel-heading[style*="yellow"],
+.panel-heading[style*="olive"],
+.panel-warning > .panel-heading,
+.workspace-stats .panel:nth-child(2) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%) !important;
+  color: #000 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Correlations card - Red/Coral header */
+.panel-heading[style*="coral"],
+.panel-heading[style*="red"],
+.panel-danger > .panel-heading,
+.workspace-stats .panel:nth-child(3) .panel-heading {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Created card - Blue header */
+.panel-heading[style*="lightblue"],
+.panel-heading[style*="blue"],
+.panel-info > .panel-heading,
+.workspace-stats .panel:nth-child(4) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Card body - Dark background */
+.workspace-stat-card .panel-body,
+.stat-card .panel-body,
+.summary-card .panel-body,
+.workspace-stats .panel-body,
+.stats-panel .panel-body {
+  background: var(--bg-secondary) !important;
+  text-align: center;
+  padding: 20px !important;
+}
+
+/* Large stat numbers */
+.workspace-stat-card .stat-number,
+.stat-card h2,
+.summary-card h2,
+.workspace-stats .panel-body h2,
+.stats-panel .panel-body h2,
+.panel-body > h2:first-child,
+.panel-body > .h2 {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 48px !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  margin: 10px 0 !important;
+}
+
+/* Stat labels */
+.workspace-stat-card .stat-label,
+.stat-card p,
+.summary-card p,
+.workspace-stats .panel-body p,
+.stats-panel .panel-body p {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: var(--text-muted) !important;
+  margin: 0 !important;
+}
+
+/* ============================================
+   Workspace Tabs - Sharp Modern Style
+   ============================================ */
+.workspace-tabs .nav-tabs,
+.workspace-detail .nav-tabs {
+  border-bottom: 1px solid var(--glass-border) !important;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+}
+
+.workspace-tabs .nav-tabs > li > a,
+.workspace-detail .nav-tabs > li > a {
+  border-radius: 0 !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 14px 24px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.workspace-tabs .nav-tabs > li > a:hover,
+.workspace-detail .nav-tabs > li > a:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--accent-green) !important;
+  border-bottom-color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+.workspace-tabs .nav-tabs > li.active > a,
+.workspace-detail .nav-tabs > li.active > a,
+.workspace-tabs .nav-tabs > li.active > a:hover,
+.workspace-detail .nav-tabs > li.active > a:hover {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: var(--accent-green) !important;
+  border-bottom-color: var(--accent-green) !important;
+  text-shadow: 0 0 10px var(--glow-green) !important;
+}
+
+/* ============================================
+   Type Labels/Badges - Sharp Style
+   ============================================ */
+.label,
+.badge,
+.tag,
+.type-label {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 12px !important;
+}
+
+/* Purple label for types like INTERNET_NAME */
+.label-primary,
+.label-default,
+.badge-primary,
+.badge-default {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 8px var(--glow-purple) !important;
+}
+
+/* All global buttons - ensure sharp */
+.btn {
+  border-radius: 0 !important;
+}
+
+/* Ensure tables on workspace page have sharp buttons */
+.workspace-detail table .btn,
+.workspace-tabs table .btn,
+.tab-content table .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  padding: 8px 16px !important;
+}
