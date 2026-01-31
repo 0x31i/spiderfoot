@@ -2049,12 +2049,12 @@ div[id*="Help"].alert-info {
 }
 
 /* ============================================
-   ASM-NG Logo Banner - 500px Centered with Parallax
+   ASM-NG Logo Banner - 200px Centered with Parallax
    ============================================ */
 .asm-ng-logo-container {
   background: #000000;
   width: 100%;
-  height: 500px;
+  height: 200px;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -2083,34 +2083,33 @@ div[id*="Help"].alert-info {
 }
 
 /* ============================================
-   ASM-NG Vertical Sidebar Menu
+   ASM-NG Horizontal Centered Menu
    ============================================ */
 .asm-ng-sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 70px;
+  right: 0;
+  width: 100%;
   background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
   z-index: 1050;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 }
 
-.asm-ng-sidebar:hover {
-  width: 240px;
-}
-
-/* Sidebar menu list */
+/* Menu list - horizontal */
 .asm-ng-sidebar .sidebar-nav {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex: 1;
-  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .asm-ng-sidebar .sidebar-nav > li {
@@ -2120,28 +2119,28 @@ div[id*="Help"].alert-info {
 .asm-ng-sidebar .sidebar-nav > li > a {
   display: flex;
   align-items: center;
-  padding: 18px 20px;
+  padding: 15px 25px;
   color: #ffffff;
   text-decoration: none;
   transition: all 0.2s ease;
-  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .asm-ng-sidebar .sidebar-nav > li > a:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-left-color: var(--accent-cyan);
+  border-bottom-color: var(--accent-cyan);
 }
 
 .asm-ng-sidebar .sidebar-nav > li.active > a {
   background: rgba(34, 211, 238, 0.1);
-  border-left-color: var(--accent-cyan);
+  border-bottom-color: var(--accent-cyan);
 }
 
-/* Menu icons - Large and glowing */
+/* Menu icons */
 .asm-ng-sidebar .sidebar-nav > li > a .nav-icon {
-  font-size: 24px;
-  width: 30px;
-  min-width: 30px;
+  font-size: 18px;
+  width: 24px;
+  min-width: 24px;
   text-align: center;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
@@ -2151,7 +2150,6 @@ div[id*="Help"].alert-info {
 .asm-ng-sidebar .sidebar-nav > li > a:hover .nav-icon {
   color: var(--accent-cyan);
   text-shadow: 0 0 15px var(--glow-cyan), 0 0 30px var(--glow-cyan);
-  transform: scale(1.1);
 }
 
 .asm-ng-sidebar .sidebar-nav > li.active > a .nav-icon {
@@ -2159,25 +2157,23 @@ div[id*="Help"].alert-info {
   text-shadow: 0 0 15px var(--glow-cyan), 0 0 30px var(--glow-cyan);
 }
 
-/* Menu text - Hidden until hover */
+/* Menu text - Always visible */
 .asm-ng-sidebar .sidebar-nav > li > a .nav-text {
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-left: 15px;
+  margin-left: 10px;
   white-space: nowrap;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.2s ease;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
 }
 
-.asm-ng-sidebar:hover .sidebar-nav > li > a .nav-text {
-  opacity: 1;
-  transform: translateX(0);
+.asm-ng-sidebar .sidebar-nav > li > a:hover .nav-text {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px var(--glow-cyan), 0 0 30px var(--glow-cyan);
 }
 
 .asm-ng-sidebar .sidebar-nav > li.active > a .nav-text {
@@ -2185,17 +2181,13 @@ div[id*="Help"].alert-info {
   text-shadow: 0 0 10px var(--glow-cyan);
 }
 
-/* Dark Mode Toggle in Sidebar */
+/* Dark Mode Toggle - Right side of menu */
 .sidebar-toggle-container {
-  padding: 20px;
-  border-top: 1px solid var(--glass-border);
+  position: absolute;
+  right: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.asm-ng-sidebar:hover .sidebar-toggle-container {
-  justify-content: flex-start;
 }
 
 .sidebar-toggle-container #toggler-text {
@@ -2206,13 +2198,7 @@ div[id*="Help"].alert-info {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   margin-right: 10px;
   font-size: 11px;
-  opacity: 0;
   white-space: nowrap;
-  transition: opacity 0.2s ease;
-}
-
-.asm-ng-sidebar:hover .sidebar-toggle-container #toggler-text {
-  opacity: 1;
 }
 
 /* Hide old navbar */
@@ -2303,7 +2289,7 @@ div[id*="Help"].alert-info {
 .ngs-footer {
   position: fixed;
   bottom: 0;
-  left: 70px;
+  left: 0;
   right: 0;
   background: #000000;
   padding: 15px 0;
@@ -2322,13 +2308,12 @@ div[id*="Help"].alert-info {
 }
 
 /* ============================================
-   Main Content Area - Adjust for Sidebar Layout
+   Main Content Area - Adjust for Horizontal Layout
    ============================================ */
 #mainbody {
-  margin-left: 70px !important;
+  margin-left: 0 !important;
   margin-top: 20px !important;
   padding-bottom: 80px !important;
-  transition: margin-left 0.3s ease;
 }
 
 body {
@@ -2337,15 +2322,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Logo container also needs sidebar margin */
+/* Logo container - full width */
 .asm-ng-logo-container {
-  margin-left: 70px;
-  width: calc(100% - 70px);
-}
-
-/* Container adjustments */
-.container {
-  max-width: calc(100% - 40px);
+  margin-left: 0;
+  width: 100%;
 }
 
 /* Hide old footer styles */
