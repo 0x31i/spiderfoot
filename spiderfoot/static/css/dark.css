@@ -2675,3 +2675,271 @@ div[style*="fixed"][style*="bottom"] {
   font-size: 14px !important;
   margin-right: 6px !important;
 }
+
+/* ============================================
+   Scans Page Toolbar Buttons - Colored & Sharp
+   ============================================ */
+/* All toolbar buttons on scans page - sharp square style */
+#scanlist-toolbar .btn,
+#scanlist .btn-toolbar .btn,
+.scans-toolbar .btn {
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 14px !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+/* Trash/Delete button - Red */
+#scanlist-toolbar .btn-danger,
+#scanlist .btn-toolbar .btn-danger,
+.scans-toolbar .btn-danger,
+#btn-delete,
+.btn[title*="Delete"],
+.btn[onclick*="delete"],
+.btn .glyphicon-trash {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-red) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-danger:hover,
+#scanlist .btn-toolbar .btn-danger:hover,
+.scans-toolbar .btn-danger:hover,
+#btn-delete:hover,
+.btn[title*="Delete"]:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-red) !important;
+}
+
+/* Refresh button - Green */
+#scanlist-toolbar .btn-success,
+#scanlist .btn-toolbar .btn-success,
+.scans-toolbar .btn-success,
+#btn-refresh,
+.btn[title*="Refresh"],
+.btn[onclick*="refresh"] {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-success:hover,
+#scanlist .btn-toolbar .btn-success:hover,
+.scans-toolbar .btn-success:hover,
+#btn-refresh:hover,
+.btn[title*="Refresh"]:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Download/Export button - Purple */
+#scanlist-toolbar .btn-info,
+#scanlist .btn-toolbar .btn-info,
+.scans-toolbar .btn-info,
+#btn-export,
+.btn[title*="Export"],
+.btn[title*="Download"],
+.btn[onclick*="export"] {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-purple) !important;
+  border-radius: 0 !important;
+}
+
+#scanlist-toolbar .btn-info:hover,
+#scanlist .btn-toolbar .btn-info:hover,
+.scans-toolbar .btn-info:hover,
+#btn-export:hover,
+.btn[title*="Export"]:hover,
+.btn[title*="Download"]:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-purple) !important;
+}
+
+/* Filter dropdown - Dark with border */
+#scanlist-toolbar .btn-default,
+#scanlist .btn-toolbar .btn-default,
+.scans-toolbar .btn-default,
+.filter-dropdown .btn {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+#scanlist-toolbar .btn-default:hover,
+#scanlist .btn-toolbar .btn-default:hover,
+.scans-toolbar .btn-default:hover {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* ============================================
+   Workspaces Page - Square Buttons
+   ============================================ */
+/* Create Workspace button - Green, Sharp */
+.btn-create-workspace,
+.workspace-create-btn,
+a[href*="newworkspace"] .btn,
+.panel-heading .btn-success,
+#workspaces .btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  padding: 10px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.btn-create-workspace:hover,
+.workspace-create-btn:hover,
+a[href*="newworkspace"] .btn:hover,
+.panel-heading .btn-success:hover,
+#workspaces .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* All workspace action buttons - Square */
+#workspaces .btn,
+.workspace-actions .btn,
+#workspaces .btn-group .btn,
+.workspaces-table .btn,
+table .btn-group .btn {
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 12px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+}
+
+/* Workspace action button colors */
+/* View - Cyan */
+#workspaces .btn-info,
+.workspace-actions .btn-info,
+table .btn-group .btn-info {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #06b6d4 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-cyan) !important;
+}
+
+#workspaces .btn-info:hover,
+.workspace-actions .btn-info:hover,
+table .btn-group .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-cyan-light) 0%, var(--accent-cyan) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-cyan) !important;
+}
+
+/* Edit - Orange */
+#workspaces .btn-warning,
+.workspace-actions .btn-warning,
+table .btn-group .btn-warning {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-orange) !important;
+}
+
+#workspaces .btn-warning:hover,
+.workspace-actions .btn-warning:hover,
+table .btn-group .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-orange) !important;
+}
+
+/* Add - Green */
+#workspaces .btn-success,
+.workspace-actions .btn-success,
+table .btn-group .btn-success:not(.panel-heading .btn-success) {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-green) !important;
+}
+
+#workspaces .btn-success:hover,
+.workspace-actions .btn-success:hover,
+table .btn-group .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-green) !important;
+}
+
+/* Primary - Purple */
+#workspaces .btn-primary,
+.workspace-actions .btn-primary,
+table .btn-group .btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-purple) !important;
+}
+
+#workspaces .btn-primary:hover,
+.workspace-actions .btn-primary:hover,
+table .btn-group .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-purple) !important;
+}
+
+/* Delete - Red */
+#workspaces .btn-danger,
+.workspace-actions .btn-danger,
+table .btn-group .btn-danger {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 0 10px var(--glow-red) !important;
+}
+
+#workspaces .btn-danger:hover,
+.workspace-actions .btn-danger:hover,
+table .btn-group .btn-danger:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 18px var(--glow-red) !important;
+}
+
+/* Default/Grey buttons */
+#workspaces .btn-default,
+.workspace-actions .btn-default,
+table .btn-group .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+#workspaces .btn-default:hover,
+.workspace-actions .btn-default:hover,
+table .btn-group .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+}
+
+/* Workspace badges - Sharp */
+#workspaces .badge,
+.workspaces-table .badge {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  padding: 6px 10px !important;
+}
