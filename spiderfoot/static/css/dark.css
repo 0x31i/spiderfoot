@@ -2055,17 +2055,15 @@ div[id*="Help"].alert-info {
   background: #000000;
   width: 100%;
   text-align: center;
-  padding: 20px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  padding: 10px 0;
+  position: relative;
   z-index: 1040;
 }
 
 .asm-ng-logo {
-  max-height: 120px;
+  max-height: 2000px;
   width: auto;
+  max-width: 100%;
   display: inline-block;
 }
 
@@ -2073,8 +2071,8 @@ div[id*="Help"].alert-info {
    ASM-NG Navbar - Centered Menu
    ============================================ */
 .asm-ng-navbar {
-  position: fixed !important;
-  top: 160px !important;
+  position: sticky !important;
+  top: 0 !important;
   left: 0;
   right: 0;
   z-index: 1030;
@@ -2085,8 +2083,8 @@ div[id*="Help"].alert-info {
 
 /* Remove fixed-top positioning from old navbar */
 .navbar-fixed-top {
-  position: fixed !important;
-  top: 160px !important;
+  position: sticky !important;
+  top: 0 !important;
 }
 
 /* Center the main navigation */
@@ -2239,7 +2237,7 @@ div[id*="Help"].alert-info {
    Main Content Area - Adjust for New Layout
    ============================================ */
 #mainbody {
-  margin-top: 220px !important;
+  margin-top: 20px !important;
   padding-bottom: 80px !important;
 }
 
