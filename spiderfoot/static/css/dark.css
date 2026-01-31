@@ -3269,3 +3269,93 @@ table .btn-danger:hover {
   text-transform: uppercase !important;
   padding: 8px 16px !important;
 }
+
+/* ============================================
+   Workspace Create Button - White Glow Text
+   ============================================ */
+/* Create Workspace button text styling */
+.workspace-panel-heading .btn-primary,
+#createWorkspaceModal .btn-primary,
+button[data-target="#createWorkspaceModal"],
+.panel-heading .btn-primary,
+.panel-heading .btn-sm {
+  text-transform: uppercase !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+  color: white !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3) !important;
+}
+
+.workspace-panel-heading .btn-primary:hover,
+button[data-target="#createWorkspaceModal"]:hover,
+.panel-heading .btn-primary:hover,
+.panel-heading .btn-sm:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 45px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ============================================
+   Workspace Panel Titles - All Caps White Glow
+   ============================================ */
+/* Panel heading titles - all caps with white glow */
+.panel-heading .panel-title,
+.panel-heading h3.panel-title,
+.panel-title,
+.workspace-stats .panel-title,
+.panel-primary .panel-title,
+.panel-success .panel-title,
+.panel-warning .panel-title,
+.panel-info .panel-title,
+.panel-danger .panel-title {
+  text-transform: uppercase !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 1px !important;
+  color: white !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Panel heading icons - also white glow */
+.panel-heading .panel-title i,
+.panel-heading .panel-title .fa,
+.panel-heading .panel-title .glyphicon {
+  color: white !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ============================================
+   Workspace Details Page Spacing
+   ============================================ */
+/* Add padding above the stats modules row */
+.container-fluid > .row:has(.panel-primary),
+.container-fluid > .row:has(.panel-success),
+.container-fluid > .row:has(.panel-warning),
+.container-fluid > .row:has(.col-md-3 > .panel) {
+  margin-top: 30px !important;
+}
+
+/* Fallback for browsers without :has() support */
+/* Stats row - add top margin */
+.page-header + .row,
+.page-header ~ .row:first-of-type {
+  margin-top: 30px !important;
+}
+
+/* Add padding above the menu buttons (page-header) */
+.page-header {
+  margin-top: 25px !important;
+  padding-top: 15px !important;
+}
+
+/* Workspace detail page specific spacing */
+.container-fluid > .row:first-child + .row {
+  margin-top: 20px !important;
+}
+
+/* Additional spacing for workspace details page */
+.breadcrumb + .row,
+.breadcrumb ~ .row:first-of-type {
+  margin-top: 15px !important;
+}
