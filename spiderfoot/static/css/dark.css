@@ -2474,3 +2474,204 @@ footer .footer {
 .spiderfoot-header-image {
   display: none !important;
 }
+
+/* ============================================
+   Floating Selection Toolbar (FP Actions)
+   Sharp Modern Style
+   ============================================ */
+.selection-bar,
+.floating-toolbar,
+.bulk-actions,
+[class*="selection"],
+.fixed-bottom-bar,
+div[style*="fixed"][style*="bottom"] {
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8) !important;
+  padding: 12px 20px !important;
+}
+
+/* Selection count badge */
+.selection-bar .badge,
+.floating-toolbar .badge,
+.bulk-actions .badge,
+[class*="selection"] .badge {
+  background: var(--accent-purple) !important;
+  color: white !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  padding: 6px 12px !important;
+  box-shadow: 0 0 10px var(--glow-purple) !important;
+}
+
+/* Selection text labels */
+.selection-bar span,
+.floating-toolbar span,
+.bulk-actions span,
+[class*="selection"] > span {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* All buttons in floating toolbar - sharp style */
+.selection-bar .btn,
+.floating-toolbar .btn,
+.bulk-actions .btn,
+[class*="selection"] .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Green buttons (Data Element) */
+.selection-bar .btn-success,
+.floating-toolbar .btn-success,
+.bulk-actions .btn-success,
+[class*="selection"] .btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-success:hover,
+.floating-toolbar .btn-success:hover,
+.bulk-actions .btn-success:hover,
+[class*="selection"] .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Blue buttons (Source Element) */
+.selection-bar .btn-info,
+.floating-toolbar .btn-info,
+.bulk-actions .btn-info,
+[class*="selection"] .btn-info {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-blue) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-info:hover,
+.floating-toolbar .btn-info:hover,
+.bulk-actions .btn-info:hover,
+[class*="selection"] .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-blue) !important;
+}
+
+/* Orange/Warning buttons (Mark as FP) */
+.selection-bar .btn-warning,
+.floating-toolbar .btn-warning,
+.bulk-actions .btn-warning,
+[class*="selection"] .btn-warning {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-orange) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.selection-bar .btn-warning:hover,
+.floating-toolbar .btn-warning:hover,
+.bulk-actions .btn-warning:hover,
+[class*="selection"] .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-orange) !important;
+}
+
+/* Default/Grey buttons (Clear) */
+.selection-bar .btn-default,
+.floating-toolbar .btn-default,
+.bulk-actions .btn-default,
+[class*="selection"] .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+.selection-bar .btn-default:hover,
+.floating-toolbar .btn-default:hover,
+.bulk-actions .btn-default:hover,
+[class*="selection"] .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* Close button (X) */
+.selection-bar .close,
+.floating-toolbar .close,
+.bulk-actions .close,
+[class*="selection"] .close,
+.selection-bar .btn-close,
+.floating-toolbar .btn-close {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  font-size: 18px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.selection-bar .close:hover,
+.floating-toolbar .close:hover,
+.bulk-actions .close:hover,
+[class*="selection"] .close:hover,
+.selection-bar .btn-close:hover,
+.floating-toolbar .btn-close:hover {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 15px var(--glow-red) !important;
+}
+
+/* Button badges/counts inside buttons */
+.selection-bar .btn .badge,
+.floating-toolbar .btn .badge,
+.bulk-actions .btn .badge,
+[class*="selection"] .btn .badge {
+  background: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+  margin-left: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Icons in floating toolbar */
+.selection-bar .btn .glyphicon,
+.floating-toolbar .btn .glyphicon,
+.bulk-actions .btn .glyphicon,
+[class*="selection"] .btn .glyphicon,
+.selection-bar .btn i,
+.floating-toolbar .btn i,
+.bulk-actions .btn i {
+  font-size: 14px !important;
+  margin-right: 6px !important;
+}
