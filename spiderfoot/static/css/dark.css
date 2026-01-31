@@ -2943,3 +2943,329 @@ table .btn-group .btn-default:hover {
   font-weight: 700 !important;
   padding: 6px 10px !important;
 }
+
+/* ============================================
+   Workspace Detail/Edit Page - Sharp Modern Style
+   ============================================ */
+/* Action buttons row (Edit, Add Target, Import Scans, etc.) */
+.workspace-actions-row .btn,
+.workspace-header .btn,
+.workspace-toolbar .btn,
+h1 + .btn-toolbar .btn,
+h2 + .btn-toolbar .btn,
+.page-header .btn,
+.page-header + .btn-toolbar .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 10px 18px !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Edit button - Grey/Default */
+.workspace-actions-row .btn-default,
+.workspace-header .btn-default {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--glass-border) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+.workspace-actions-row .btn-default:hover,
+.workspace-header .btn-default:hover {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%) !important;
+  color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+/* Add Target button - Green */
+.workspace-actions-row .btn-success,
+.workspace-header .btn-success,
+.btn[href*="addtarget"],
+.btn[onclick*="addTarget"] {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-green) !important;
+}
+
+.workspace-actions-row .btn-success:hover,
+.workspace-header .btn-success:hover {
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-green) !important;
+}
+
+/* Import/Info buttons - Blue */
+.workspace-actions-row .btn-info,
+.workspace-header .btn-info,
+.btn[href*="import"],
+.btn[onclick*="import"] {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-blue) !important;
+}
+
+.workspace-actions-row .btn-info:hover,
+.workspace-header .btn-info:hover {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-blue) !important;
+}
+
+/* Primary buttons - Purple */
+.workspace-actions-row .btn-primary,
+.workspace-header .btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-purple) !important;
+}
+
+.workspace-actions-row .btn-primary:hover,
+.workspace-header .btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--accent-purple) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-purple) !important;
+}
+
+/* Warning/Schedule buttons - Orange */
+.workspace-actions-row .btn-warning,
+.workspace-header .btn-warning,
+.btn[href*="schedule"],
+.btn[onclick*="schedule"] {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ea580c 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-orange) !important;
+}
+
+.workspace-actions-row .btn-warning:hover,
+.workspace-header .btn-warning:hover {
+  background: linear-gradient(135deg, #fb923c 0%, var(--accent-orange) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-orange) !important;
+}
+
+/* Danger/Remove buttons - Red */
+.workspace-actions-row .btn-danger,
+.workspace-header .btn-danger,
+.btn-remove,
+.btn[onclick*="remove"],
+table .btn-danger {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 12px var(--glow-red) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+}
+
+.workspace-actions-row .btn-danger:hover,
+.workspace-header .btn-danger:hover,
+.btn-remove:hover,
+table .btn-danger:hover {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  box-shadow: 0 0 20px var(--glow-red) !important;
+}
+
+/* ============================================
+   Workspace Stat Cards - Sharp Modern Style
+   ============================================ */
+.workspace-stat-card,
+.stat-card,
+.summary-card,
+.panel.workspace-panel,
+.workspace-stats .panel,
+.col-md-3 > .panel,
+.col-sm-3 > .panel,
+.stats-panel {
+  border-radius: 0 !important;
+  border: 1px solid var(--glass-border) !important;
+  overflow: hidden;
+}
+
+/* Card headers - Sharp with colors */
+.workspace-stat-card .panel-heading,
+.stat-card .panel-heading,
+.summary-card .panel-heading,
+.workspace-stats .panel-heading,
+.stats-panel .panel-heading {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 12px 16px !important;
+  border-bottom: none !important;
+}
+
+/* Targets card - Green header */
+.panel-heading[style*="green"],
+.panel-success > .panel-heading,
+.workspace-stats .panel:nth-child(1) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Scans card - Yellow/Orange header */
+.panel-heading[style*="yellow"],
+.panel-heading[style*="olive"],
+.panel-warning > .panel-heading,
+.workspace-stats .panel:nth-child(2) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, #d97706 100%) !important;
+  color: #000 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Correlations card - Red/Coral header */
+.panel-heading[style*="coral"],
+.panel-heading[style*="red"],
+.panel-danger > .panel-heading,
+.workspace-stats .panel:nth-child(3) .panel-heading {
+  background: linear-gradient(135deg, #f87171 0%, var(--accent-red) 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Created card - Blue header */
+.panel-heading[style*="lightblue"],
+.panel-heading[style*="blue"],
+.panel-info > .panel-heading,
+.workspace-stats .panel:nth-child(4) .panel-heading {
+  background: linear-gradient(135deg, var(--accent-blue-light) 0%, var(--accent-blue) 100%) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Card body - Dark background */
+.workspace-stat-card .panel-body,
+.stat-card .panel-body,
+.summary-card .panel-body,
+.workspace-stats .panel-body,
+.stats-panel .panel-body {
+  background: var(--bg-secondary) !important;
+  text-align: center;
+  padding: 20px !important;
+}
+
+/* Large stat numbers */
+.workspace-stat-card .stat-number,
+.stat-card h2,
+.summary-card h2,
+.workspace-stats .panel-body h2,
+.stats-panel .panel-body h2,
+.panel-body > h2:first-child,
+.panel-body > .h2 {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 48px !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  margin: 10px 0 !important;
+}
+
+/* Stat labels */
+.workspace-stat-card .stat-label,
+.stat-card p,
+.summary-card p,
+.workspace-stats .panel-body p,
+.stats-panel .panel-body p {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: var(--text-muted) !important;
+  margin: 0 !important;
+}
+
+/* ============================================
+   Workspace Tabs - Sharp Modern Style
+   ============================================ */
+.workspace-tabs .nav-tabs,
+.workspace-detail .nav-tabs {
+  border-bottom: 1px solid var(--glass-border) !important;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+}
+
+.workspace-tabs .nav-tabs > li > a,
+.workspace-detail .nav-tabs > li > a {
+  border-radius: 0 !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 14px 24px !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.workspace-tabs .nav-tabs > li > a:hover,
+.workspace-detail .nav-tabs > li > a:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--accent-green) !important;
+  border-bottom-color: var(--accent-green) !important;
+  text-shadow: 0 0 15px var(--glow-green) !important;
+}
+
+.workspace-tabs .nav-tabs > li.active > a,
+.workspace-detail .nav-tabs > li.active > a,
+.workspace-tabs .nav-tabs > li.active > a:hover,
+.workspace-detail .nav-tabs > li.active > a:hover {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: var(--accent-green) !important;
+  border-bottom-color: var(--accent-green) !important;
+  text-shadow: 0 0 10px var(--glow-green) !important;
+}
+
+/* ============================================
+   Type Labels/Badges - Sharp Style
+   ============================================ */
+.label,
+.badge,
+.tag,
+.type-label {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 12px !important;
+}
+
+/* Purple label for types like INTERNET_NAME */
+.label-primary,
+.label-default,
+.badge-primary,
+.badge-default {
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #7c3aed 100%) !important;
+  color: white !important;
+  box-shadow: 0 0 8px var(--glow-purple) !important;
+}
+
+/* All global buttons - ensure sharp */
+.btn {
+  border-radius: 0 !important;
+}
+
+/* Ensure tables on workspace page have sharp buttons */
+.workspace-detail table .btn,
+.workspace-tabs table .btn,
+.tab-content table .btn {
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  padding: 8px 16px !important;
+}
