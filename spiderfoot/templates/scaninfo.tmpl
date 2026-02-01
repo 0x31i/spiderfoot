@@ -74,10 +74,11 @@
   </div>
 
   <!-- Floating Selection Toolbar - Modern horizontal design -->
-  <div id="selection-toolbar" style="display: none !important;">
-    <!-- Left drag handle -->
-    <div class="toolbar-drag-handle toolbar-drag-left" title="Drag to move">
-      <i class="glyphicon glyphicon-menu-hamburger"></i>
+  <div id="selection-toolbar" class="toolbar-bottom" style="display: none !important;">
+    <!-- Left snap button -->
+    <div class="toolbar-snap-btn toolbar-snap-left" onclick="snapToolbar('left')" title="Snap to left">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      <span class="snap-label">SNAP LEFT</span>
     </div>
 
     <div class="toolbar-content">
@@ -123,9 +124,10 @@
       <button type="button" class="close-btn" onclick="clearSelection()">&times;</button>
     </div>
 
-    <!-- Right drag handle -->
-    <div class="toolbar-drag-handle toolbar-drag-right" title="Drag to move">
-      <i class="glyphicon glyphicon-menu-hamburger"></i>
+    <!-- Right snap button -->
+    <div class="toolbar-snap-btn toolbar-snap-right" onclick="snapToolbar('right')" title="Snap to right">
+      <span class="snap-label">SNAP RIGHT</span>
+      <i class="glyphicon glyphicon-chevron-right"></i>
     </div>
   </div>
     <script src="${docroot}/static/node_modules/sigma/build/sigma.min.js"></script>
@@ -216,7 +218,6 @@
         function clearSelection() {
             $("input[id*=cb_]").prop('checked', false);
             $("#checkall").prop('checked', false);
-            resetToolbarPosition();
             updateSelectionToolbar();
         }
 
@@ -225,7 +226,7 @@
             // Only operate if we're on a page with FP checkboxes
             var hasCheckboxes = $("input[id*=cb_]").length > 0;
             if (!hasCheckboxes) {
-                $("#selection-toolbar").attr('style', 'display: none !important;');
+                $("#selection-toolbar").hide();
                 return;
             }
 
@@ -233,15 +234,8 @@
             $("#selection-count").text(selectedCount);
 
             if (selectedCount > 0) {
-                // Remove the !important and show with fixed positioning
-                // Preserve custom position if user has dragged the toolbar
-                var toolbar = document.getElementById('selection-toolbar');
-                var baseStyles = 'display: flex; position: fixed; z-index: 1050; width: fit-content; max-width: 95vw; height: auto;';
-                if (toolbarDragState.customPosition && toolbar.style.left) {
-                    $("#selection-toolbar").attr('style', baseStyles + ' left: ' + toolbar.style.left + '; top: ' + toolbar.style.top + ';');
-                } else {
-                    $("#selection-toolbar").attr('style', baseStyles + ' bottom: 20px; left: 50%; transform: translateX(-50%);');
-                }
+                // Show toolbar - CSS classes handle positioning
+                $("#selection-toolbar").show();
 
                 // Collect ALL unique Data Elements and Source Elements from ALL selected rows
                 selectedDataElements = [];
@@ -301,7 +295,7 @@
                     $("#match-source-element").hide();
                 }
             } else {
-                $("#selection-toolbar").attr('style', 'display: none !important;');
+                $("#selection-toolbar").hide();
             }
         }
 
@@ -372,98 +366,62 @@
         }
 
         // ============================================
-        // Draggable Toolbar Functionality
+        // Snap-to Toolbar Functionality
         // ============================================
-        var toolbarDragState = {
-            isDragging: false,
-            startX: 0,
-            startY: 0,
-            toolbarX: 0,
-            toolbarY: 0,
-            customPosition: false
-        };
+        var toolbarPosition = 'bottom'; // 'bottom', 'left', or 'right'
 
-        function initToolbarDrag() {
-            var toolbar = document.getElementById('selection-toolbar');
-            var handles = toolbar.querySelectorAll('.toolbar-drag-handle');
-
-            handles.forEach(function(handle) {
-                handle.addEventListener('mousedown', startDrag);
-                handle.addEventListener('touchstart', startDrag, { passive: false });
-            });
-
-            document.addEventListener('mousemove', doDrag);
-            document.addEventListener('touchmove', doDrag, { passive: false });
-            document.addEventListener('mouseup', endDrag);
-            document.addEventListener('touchend', endDrag);
-        }
-
-        function startDrag(e) {
-            e.preventDefault();
+        function snapToolbar(position) {
             var toolbar = document.getElementById('selection-toolbar');
 
-            toolbarDragState.isDragging = true;
-            toolbar.classList.add('is-dragging');
-            e.target.closest('.toolbar-drag-handle').classList.add('dragging');
+            // If already on left/right and clicking the remaining snap button, go to bottom
+            if (toolbarPosition === 'left' && position === 'right') {
+                position = 'bottom';
+            } else if (toolbarPosition === 'right' && position === 'left') {
+                position = 'bottom';
+            }
 
-            var clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            var clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+            // Remove all position classes
+            toolbar.classList.remove('toolbar-bottom', 'toolbar-left', 'toolbar-right');
 
-            var rect = toolbar.getBoundingClientRect();
-            toolbarDragState.startX = clientX;
-            toolbarDragState.startY = clientY;
-            toolbarDragState.toolbarX = rect.left;
-            toolbarDragState.toolbarY = rect.top;
+            // Add new position class
+            toolbar.classList.add('toolbar-' + position);
+            toolbarPosition = position;
+
+            // Store preference in localStorage
+            try {
+                localStorage.setItem('toolbarPosition', position);
+            } catch(e) {}
+
+            // Update toolbar display
+            updateToolbarStyle();
         }
 
-        function doDrag(e) {
-            if (!toolbarDragState.isDragging) return;
-            e.preventDefault();
-
+        function updateToolbarStyle() {
             var toolbar = document.getElementById('selection-toolbar');
-            var clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            var clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+            var selectedCount = $("input[id*=cb_]:checked").length;
 
-            var deltaX = clientX - toolbarDragState.startX;
-            var deltaY = clientY - toolbarDragState.startY;
-
-            var newX = toolbarDragState.toolbarX + deltaX;
-            var newY = toolbarDragState.toolbarY + deltaY;
-
-            // Keep within viewport bounds
-            var rect = toolbar.getBoundingClientRect();
-            var maxX = window.innerWidth - rect.width;
-            var maxY = window.innerHeight - rect.height;
-
-            newX = Math.max(0, Math.min(newX, maxX));
-            newY = Math.max(0, Math.min(newY, maxY));
-
-            toolbar.style.left = newX + 'px';
-            toolbar.style.top = newY + 'px';
-            toolbar.style.bottom = 'auto';
-            toolbar.style.transform = 'none';
-
-            toolbarDragState.customPosition = true;
+            if (selectedCount > 0) {
+                toolbar.style.display = 'flex';
+                toolbar.style.position = 'fixed';
+                toolbar.style.zIndex = '1050';
+            }
         }
 
-        function endDrag(e) {
-            if (!toolbarDragState.isDragging) return;
-
-            toolbarDragState.isDragging = false;
-            var toolbar = document.getElementById('selection-toolbar');
-            toolbar.classList.remove('is-dragging');
-
-            var handles = toolbar.querySelectorAll('.toolbar-drag-handle');
-            handles.forEach(function(h) { h.classList.remove('dragging'); });
+        function loadToolbarPosition() {
+            try {
+                var saved = localStorage.getItem('toolbarPosition');
+                if (saved && ['bottom', 'left', 'right'].indexOf(saved) !== -1) {
+                    toolbarPosition = saved;
+                    var toolbar = document.getElementById('selection-toolbar');
+                    toolbar.classList.remove('toolbar-bottom', 'toolbar-left', 'toolbar-right');
+                    toolbar.classList.add('toolbar-' + saved);
+                }
+            } catch(e) {}
         }
 
-        function resetToolbarPosition() {
-            toolbarDragState.customPosition = false;
-        }
-
-        // Initialize drag on page load
+        // Initialize on page load
         $(document).ready(function() {
-            initToolbarDrag();
+            loadToolbarPosition();
         });
 
         function getSelected() {
