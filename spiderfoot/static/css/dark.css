@@ -377,6 +377,8 @@ a:hover {
 .btn-danger::after,
 .btn-info::after {
   background-color: #ffffff !important;
+}
+
 .btn-info:hover .glyphicon,
 .btn-info:focus .glyphicon {
   color: #ffffff !important;
