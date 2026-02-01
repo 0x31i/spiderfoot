@@ -1399,6 +1399,17 @@ pre.table-border-bg-inherit {
   text-shadow: 0 0 15px var(--glow-green);
 }
 
+/* Colored buttons (success, primary) - icon turns white on hover, not green */
+.btn-toolbar .btn-group > .btn.btn-success:hover .glyphicon,
+.btn-toolbar .btn-group > .btn.btn-primary:hover .glyphicon,
+.btn-toolbar .btn-success:hover .glyphicon,
+.btn-toolbar .btn-primary:hover .glyphicon,
+.btn-group .btn-success:hover .glyphicon,
+.btn-group .btn-primary:hover .glyphicon {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8) !important;
+}
+
 .btn-toolbar .btn-group > .btn.btn-default.active .glyphicon {
   color: var(--accent-green) !important;
   text-shadow: 0 0 10px var(--glow-green);
