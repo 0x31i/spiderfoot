@@ -3821,3 +3821,50 @@ button[data-target="#createWorkspaceModal"]:hover,
 .btn[style*="background"]:hover * {
   color: #fff !important;
 }
+
+/* ============================================
+   MISSING: glyphicon-white class (Bootstrap 2 legacy)
+   The HTML uses this class but it was never defined!
+   ============================================ */
+.glyphicon-white,
+.glyphicon.glyphicon-white,
+i.glyphicon-white {
+  color: #fff !important;
+}
+
+/* ============================================
+   FIX: Buttons with BOTH btn-default AND color class
+   e.g., "btn btn-success btn-default"
+   ============================================ */
+.btn-success.btn-default,
+.btn-success.btn-default *,
+.btn-success.btn-default:hover,
+.btn-success.btn-default:hover *,
+.btn-warning.btn-default,
+.btn-warning.btn-default *,
+.btn-warning.btn-default:hover,
+.btn-warning.btn-default:hover *,
+.btn-danger.btn-default,
+.btn-danger.btn-default *,
+.btn-danger.btn-default:hover,
+.btn-danger.btn-default:hover *,
+.btn-primary.btn-default,
+.btn-primary.btn-default *,
+.btn-primary.btn-default:hover,
+.btn-primary.btn-default:hover *,
+.btn-info.btn-default,
+.btn-info.btn-default *,
+.btn-info.btn-default:hover,
+.btn-info.btn-default:hover * {
+  color: #fff !important;
+}
+
+/* Ensure glyphicon-white ALWAYS works */
+.glyphicon.glyphicon-white,
+.btn .glyphicon-white,
+.btn-default .glyphicon-white,
+.btn-group .glyphicon-white,
+i.glyphicon-white,
+.dropdown-toggle .glyphicon-white {
+  color: #fff !important;
+}
