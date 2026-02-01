@@ -2642,69 +2642,219 @@ footer .footer {
 }
 
 /* ============================================
-   Toolbar Drag Handles - Moveable Toolbar
+   Toolbar Snap Positions
    ============================================ */
+
+/* Base toolbar layout */
 #selection-toolbar {
-  display: flex !important;
+  display: none;
+  position: fixed !important;
+  z-index: 1050 !important;
   align-items: center !important;
   gap: 0 !important;
-  flex-wrap: nowrap !important;
 }
 
 #selection-toolbar .toolbar-content {
   flex: 0 1 auto !important;
   display: flex !important;
   align-items: center !important;
-  gap: 20px !important;
-  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  padding: 0 10px !important;
 }
 
-.toolbar-drag-handle {
-  width: 24px !important;
-  min-width: 24px !important;
-  flex: 0 0 24px !important;
+/* Bottom position (default - horizontal) */
+#selection-toolbar.toolbar-bottom {
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: auto !important;
+  right: auto !important;
+  flex-direction: row !important;
+  width: fit-content !important;
+  max-width: 95vw !important;
   height: auto !important;
-  min-height: 40px !important;
+}
+
+#selection-toolbar.toolbar-bottom .toolbar-content {
+  flex-direction: row !important;
+}
+
+/* Left position (vertical) */
+#selection-toolbar.toolbar-left {
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  bottom: auto !important;
+  right: auto !important;
+  flex-direction: column !important;
+  width: auto !important;
+  max-width: 280px !important;
+  height: fit-content !important;
+  max-height: 90vh !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-content {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  padding: 10px !important;
+}
+
+#selection-toolbar.toolbar-left .match-section {
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+#selection-toolbar.toolbar-left .match-buttons {
+  flex-direction: column !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-actions {
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-actions .btn {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+/* Right position (vertical) */
+#selection-toolbar.toolbar-right {
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  bottom: auto !important;
+  left: auto !important;
+  flex-direction: column !important;
+  width: auto !important;
+  max-width: 280px !important;
+  height: fit-content !important;
+  max-height: 90vh !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+}
+
+#selection-toolbar.toolbar-right .toolbar-content {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  padding: 10px !important;
+}
+
+#selection-toolbar.toolbar-right .match-section {
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+#selection-toolbar.toolbar-right .match-buttons {
+  flex-direction: column !important;
+}
+
+#selection-toolbar.toolbar-right .toolbar-actions {
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+#selection-toolbar.toolbar-right .toolbar-actions .btn {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+/* ============================================
+   Snap Buttons
+   ============================================ */
+.toolbar-snap-btn {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  cursor: grab !important;
+  padding: 8px 6px !important;
+  cursor: pointer !important;
   background: rgba(255, 255, 255, 0.05) !important;
   border: none !important;
   transition: all 0.2s ease !important;
   color: rgba(255, 255, 255, 0.4) !important;
   align-self: stretch !important;
+  min-height: 40px !important;
+  gap: 4px !important;
 }
 
-.toolbar-drag-handle:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.toolbar-drag-handle:active,
-.toolbar-drag-handle.dragging {
-  cursor: grabbing !important;
+.toolbar-snap-btn:hover {
   background: rgba(255, 255, 255, 0.15) !important;
   color: rgba(255, 255, 255, 1) !important;
 }
 
-.toolbar-drag-handle .glyphicon {
-  font-size: 12px !important;
-  transform: rotate(90deg) !important;
+.toolbar-snap-btn .snap-label {
+  display: none !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  white-space: nowrap !important;
 }
 
-.toolbar-drag-left {
+.toolbar-snap-btn:hover .snap-label {
+  display: inline !important;
+}
+
+.toolbar-snap-btn .glyphicon {
+  font-size: 12px !important;
+}
+
+.toolbar-snap-left {
   border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.toolbar-drag-right {
+.toolbar-snap-right {
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* When toolbar is being dragged */
-#selection-toolbar.is-dragging {
-  opacity: 0.95 !important;
-  box-shadow: 0 8px 50px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+/* Hide snap buttons based on current position */
+#selection-toolbar.toolbar-left .toolbar-snap-left,
+#selection-toolbar.toolbar-right .toolbar-snap-right {
+  display: none !important;
+}
+
+/* Change snap button icons/labels based on position */
+#selection-toolbar.toolbar-left .toolbar-snap-right .glyphicon:before {
+  content: "\e258" !important; /* chevron-down for "snap to bottom" */
+}
+
+#selection-toolbar.toolbar-right .toolbar-snap-left .glyphicon:before {
+  content: "\e258" !important; /* chevron-down for "snap to bottom" */
+}
+
+/* Vertical layout adjustments for snap buttons */
+#selection-toolbar.toolbar-left,
+#selection-toolbar.toolbar-right {
+  flex-direction: column !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-snap-btn,
+#selection-toolbar.toolbar-right .toolbar-snap-btn {
+  width: 100% !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 10px !important;
+  justify-content: center !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-snap-right,
+#selection-toolbar.toolbar-right .toolbar-snap-left {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: none !important;
+}
+
+/* Reorder for vertical layouts */
+#selection-toolbar.toolbar-left .toolbar-snap-left,
+#selection-toolbar.toolbar-right .toolbar-snap-right {
+  order: -1 !important;
+}
+
+#selection-toolbar.toolbar-left .toolbar-snap-right,
+#selection-toolbar.toolbar-right .toolbar-snap-left {
+  order: 1 !important;
 }
 
 /* ============================================
