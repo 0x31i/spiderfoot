@@ -75,6 +75,11 @@
 
   <!-- Floating Selection Toolbar - Modern horizontal design -->
   <div id="selection-toolbar" style="display: none !important;">
+    <!-- Left drag handle -->
+    <div class="toolbar-drag-handle toolbar-drag-left" title="Drag to move">
+      <i class="glyphicon glyphicon-menu-hamburger"></i>
+    </div>
+
     <div class="toolbar-content">
       <!-- Selection count -->
       <div class="selection-count-display">
@@ -116,6 +121,11 @@
 
       <!-- Close button -->
       <button type="button" class="close-btn" onclick="clearSelection()">&times;</button>
+    </div>
+
+    <!-- Right drag handle -->
+    <div class="toolbar-drag-handle toolbar-drag-right" title="Drag to move">
+      <i class="glyphicon glyphicon-menu-hamburger"></i>
     </div>
   </div>
     <script src="${docroot}/static/node_modules/sigma/build/sigma.min.js"></script>
@@ -206,6 +216,7 @@
         function clearSelection() {
             $("input[id*=cb_]").prop('checked', false);
             $("#checkall").prop('checked', false);
+            resetToolbarPosition();
             updateSelectionToolbar();
         }
 
@@ -223,7 +234,13 @@
 
             if (selectedCount > 0) {
                 // Remove the !important and show with fixed positioning
-                $("#selection-toolbar").attr('style', 'display: block; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1050;');
+                // Preserve custom position if user has dragged the toolbar
+                var toolbar = document.getElementById('selection-toolbar');
+                if (toolbarDragState.customPosition && toolbar.style.left) {
+                    $("#selection-toolbar").attr('style', 'display: flex; position: fixed; z-index: 1050; left: ' + toolbar.style.left + '; top: ' + toolbar.style.top + ';');
+                } else {
+                    $("#selection-toolbar").attr('style', 'display: flex; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1050;');
+                }
 
                 // Collect ALL unique Data Elements and Source Elements from ALL selected rows
                 selectedDataElements = [];
@@ -352,6 +369,101 @@
             }
             updateSelectionToolbar();
         }
+
+        // ============================================
+        // Draggable Toolbar Functionality
+        // ============================================
+        var toolbarDragState = {
+            isDragging: false,
+            startX: 0,
+            startY: 0,
+            toolbarX: 0,
+            toolbarY: 0,
+            customPosition: false
+        };
+
+        function initToolbarDrag() {
+            var toolbar = document.getElementById('selection-toolbar');
+            var handles = toolbar.querySelectorAll('.toolbar-drag-handle');
+
+            handles.forEach(function(handle) {
+                handle.addEventListener('mousedown', startDrag);
+                handle.addEventListener('touchstart', startDrag, { passive: false });
+            });
+
+            document.addEventListener('mousemove', doDrag);
+            document.addEventListener('touchmove', doDrag, { passive: false });
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchend', endDrag);
+        }
+
+        function startDrag(e) {
+            e.preventDefault();
+            var toolbar = document.getElementById('selection-toolbar');
+
+            toolbarDragState.isDragging = true;
+            toolbar.classList.add('is-dragging');
+            e.target.closest('.toolbar-drag-handle').classList.add('dragging');
+
+            var clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            var clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+            var rect = toolbar.getBoundingClientRect();
+            toolbarDragState.startX = clientX;
+            toolbarDragState.startY = clientY;
+            toolbarDragState.toolbarX = rect.left;
+            toolbarDragState.toolbarY = rect.top;
+        }
+
+        function doDrag(e) {
+            if (!toolbarDragState.isDragging) return;
+            e.preventDefault();
+
+            var toolbar = document.getElementById('selection-toolbar');
+            var clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            var clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+            var deltaX = clientX - toolbarDragState.startX;
+            var deltaY = clientY - toolbarDragState.startY;
+
+            var newX = toolbarDragState.toolbarX + deltaX;
+            var newY = toolbarDragState.toolbarY + deltaY;
+
+            // Keep within viewport bounds
+            var rect = toolbar.getBoundingClientRect();
+            var maxX = window.innerWidth - rect.width;
+            var maxY = window.innerHeight - rect.height;
+
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+
+            toolbar.style.left = newX + 'px';
+            toolbar.style.top = newY + 'px';
+            toolbar.style.bottom = 'auto';
+            toolbar.style.transform = 'none';
+
+            toolbarDragState.customPosition = true;
+        }
+
+        function endDrag(e) {
+            if (!toolbarDragState.isDragging) return;
+
+            toolbarDragState.isDragging = false;
+            var toolbar = document.getElementById('selection-toolbar');
+            toolbar.classList.remove('is-dragging');
+
+            var handles = toolbar.querySelectorAll('.toolbar-drag-handle');
+            handles.forEach(function(h) { h.classList.remove('dragging'); });
+        }
+
+        function resetToolbarPosition() {
+            toolbarDragState.customPosition = false;
+        }
+
+        // Initialize drag on page load
+        $(document).ready(function() {
+            initToolbarDrag();
+        });
 
         function getSelected() {
             ids = [];
